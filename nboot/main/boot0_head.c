@@ -111,6 +111,15 @@ const boot0_file_head_t  BT0_head = {
 			0x34050100,
 		},
 #endif /* CFG_F133_DDR2 */
+#ifdef CFG_MANGOPI_MQ
+		/*__s32	uart_port;*/
+		3,
+		/*normal_gpio_cfg   uart_ctrl[2];*/
+		{
+			{2, 6, 7, 1, 0xff, 0xff, {0} }, /*PB6: 7--TX*/
+			{2, 7, 7, 1, 0xff, 0xff, {0} }, /*PB7: 7--RX*/
+		},
+#else
 		/*__s32	uart_port;*/
 		0,
 		/*normal_gpio_cfg   uart_ctrl[2];*/
@@ -118,6 +127,7 @@ const boot0_file_head_t  BT0_head = {
 			{2, 8, 6, 1, 0xff, 0xff, {0} }, /*PB8: 6--RX*/
 			{2, 9, 6, 1, 0xff, 0xff, {0} }, /*PB9: 6--TX*/
 		},
+#endif /* CFG_MANGOPI_MQ */
 		/*__s32 enable_jtag;*/
 		0,
 		/*normal_gpio_cfg	 jtag_gpio[5];*/
