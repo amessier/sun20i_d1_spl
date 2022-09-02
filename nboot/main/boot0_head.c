@@ -54,6 +54,35 @@ const boot0_file_head_t  BT0_head = {
 		8,
 		0,/* power_mode */
 		{0},/* reserver[2]  */
+#ifdef CFG_F133_DDR2
+		/*unsigned int     dram_para[32] ;*/
+		{
+			0x00000210,
+			0x00000002,
+			0x007b7bf9,
+			0x00000000,
+			0x000000d2,
+			0x00000000,
+			0x00000e73,
+			0x00000002,
+			0x00000000,
+			0x00000000,
+			0x00471992,
+			0x0131a10c,
+			0x00057041,
+			0xb4787896,
+			0x00000000,
+			0x48484848,
+			0x00000048,
+			0x1621121e,
+			0x00000000,
+			0x00000000,
+			0x00000000,
+			0x00030010,
+			0x00000035,
+			0x34000000,
+		},
+#else
 		/*unsigned int     dram_para[32] ;*/
 		{
 			0x00000318,
@@ -81,6 +110,7 @@ const boot0_file_head_t  BT0_head = {
 			0x00000024,
 			0x34050100,
 		},
+#endif /* CFG_F133_DDR2 */
 		/*__s32	uart_port;*/
 		0,
 		/*normal_gpio_cfg   uart_ctrl[2];*/
